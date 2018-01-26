@@ -14,122 +14,139 @@
     <link href="bootstrap1/css/bootstrap.min.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet" />
 	
-	<script language = "javascript" type = "text/javascript">
-					
-			function reges() {
-				var modal = document.getElementById('R');
-				modal.style.display = "block";
-							}
-			function clos()
-			{
-				var modal = document.getElementById('R');
-				modal.style.display = "none";
-			}
-				
-	</script>
-	
-	<style>
-		
-			.modal {
-				display: none; /* Hidden by default */
-				position: fixed; /* Stay in place */
-				z-index: 1; /* Sit on top */
-				padding-top: 100px; /* Location of the box */
-				left: 0;
-				top: 0;
-				width: 100%; /* Full width */
-				height: 100%; /* Full height */
-				overflow: auto; /* Enable scroll if needed */
-				background-color: rgb(0,0,0); /* Fallback color */
-				background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-			}
+<style>
+#myImg {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-			
-			.modal-content {
-				position: relative;
-				background-color: #fefefe;
-				margin: auto;
-				padding: 0;
-				border: 1px solid #888;
-				width: 80%;
-				box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-				-webkit-animation-name: animatetop;
-				-webkit-animation-duration: 0.4s;
-				animation-name: animatetop;
-				animation-duration: 0.4s
-			}
+#myImg:hover {opacity: 0.7;}
 
-			
-			@-webkit-keyframes animatetop {
-				from {top:-300px; opacity:0} 
-				to {top:0; opacity:1}
-			}
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 150px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.1); /* Black w/ opacity */
+}
 
-			@keyframes animatetop {
-				from {top:-300px; opacity:0}
-				to {top:0; opacity:1}
-			}
+/* Modal Content (image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
 
-			
-			.close {
-				color: white;
-				float: right;
-				font-size: 28px;
-				font-weight: bold;
-			}
+/* Caption of Modal Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
 
-			.close:hover,
-			.close:focus {
-				color: #000;
-				text-decoration: none;
-				cursor: pointer;
-			}
+/* Add Animation */
+.modal-content, #caption {    
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
 
-			.modal-header {
-				padding: 2px 16px;
-				background-color: #5cb85c;
-				color: white;
-			}
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+}
 
-			.modal-body {padding: 2px 16px;}
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
 
-			.modal-footer {
-				padding: 2px 16px;
-				background-color: #5cb85c;
-				color: white;
-			}
-	</style>
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    color: #000000;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
+</style>
+
+
+
  </head>
 
  
  
- <body>
+ <body  id="bod">
 
-	<div id='R' class="modal">
-			<div class="modal-content">
-				<div class="modal-header">
-				  <span class="close" onclick = "clos();">&times;</span>
-				  <h1 style = "text-align:center;color:red"><b>REGISTRATION OPENS</b></h1>
-				</div>
-				<div class="modal-body">
-					<div class="container-fluid">
-						<div class="row">
-							<div class="col-xs-12 col-md-6">
-								 <p style="font-size:20px;"><b>Registration Opens: 8th November 2017</b><br /><br />
-								<b>Registration Closes: 8<sup>th</sup> January 2018</b><br /><br />
-								</p>
-							</div>
-							<div class="col-md-6 col-xs-12">
-								<b><span style="color:red;font-size:60px">Prize Upto Rs.2,00,000</span></b>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="modal-footer">
-				  Contact Us: Diwas Acharya: 9842436819
-				</div>
+<div id="myModal" class="modal">
+
+	<div class = "container-fluid">
+		<div class="row">
+			
+			<div class="col-xs-11 ">
+				<img class="modal-content img-responsive" id="img01" src = "image/flex.jpg">
 			</div>
+			<div class="col-xs-1">
+				<span class="close">&times;</span>
+			</div>
+		</div>
 	</div>
+  
+  
+</div>
+
+<script>
+
+var modal = document.getElementById('myModal');
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var bodyi = document.getElementById('bod');
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+bodyi.onload = function(){
+    modal.style.display = "block";
+    modalImg.src = "image/flex.jpg";
+    captionText.innerHTML = this.alt;
+}
+
+var span = document.getElementsByClassName("close")[0];
+
+span.onclick = function() { 
+    modal.style.display = "none";
+}
+</script>
  
  
 	<div class="container-fluid" >
